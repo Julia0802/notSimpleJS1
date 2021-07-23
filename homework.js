@@ -85,8 +85,8 @@ function findNumbers(n){
 function isAnagramma(text1, text2){
       let line1 = text1.toLowerCase();
       let line2 = text2.toLowerCase();
-      let sentence1 = line1.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()]*/g,'');
-      let sentence2= line2.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()]*/g,'');
+      let sentence1 = line1.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()<>]*/g,'');
+      let sentence2= line2.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()<>]*/g,'');
       let arrayFromline1 = sentence1.split("");
       let arrayFromline2 = sentence2.split("");
       if(arrayFromline1.length !== arrayFromline2.length){
