@@ -92,16 +92,15 @@ function isAnagramma(text1, text2){
       if(arrayFromline1.length !== arrayFromline2.length){
             return false;
       }
-     arrayFromline1.sort();
-     arrayFromline2.sort();
-     for(let i = 0; i<arrayFromline1.length;i++){
-           if(arrayFromline1[i]!==arrayFromline2[i]){
-                 return false;
-           }else{
-                 continue;
-           }
-     }
-     return true;
+      arrayFromline1.sort();
+      arrayFromline2.sort();
+      let word1 = arrayFromline1.join('');
+      let word2 = arrayFromline2.join('');
+      if(word1 !== word2){
+            return  false;
+      }else{
+            return true;
+      }    
 }
 //6
 function countVowels(text){
