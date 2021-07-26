@@ -124,12 +124,21 @@ let reverseArray = [ ];
 }
 //8
 function averageSum(array){
-      let sum = 0;
-      for(let i=0; i<array.length; i++){
+      if(array.length===0){
+            return "Array is empty";
+      } 
+      for(let i = 0; i < array.length; i++){
+            if (typeof array[i]!== Number){
+                  return "Invalid data";
+            }
+      }   
+      let sum = 0;       
+      for (let i = 0; i < array.length; i++) {
             sum = sum + array[i];
       }
-      let averageSum = sum/array.length;
+      let averageSum = sum / array.length;
       return averageSum;
+
 }
 //9
 function inArray(text, array){
