@@ -85,32 +85,23 @@ function findNumbers(n){
 function isAnagramma(text1, text2){
       let line1 = text1.toLowerCase();
       let line2 = text2.toLowerCase();
-      let sentence1 = line1.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()<>]*/g,'');
-      let sentence2= line2.replace(/[\s \p{P}.,?\/#'"!$%\^&\*;:{}=\-_`~()<>]*/g,'');
+      let sentence1 = line1.replace(/[^A-Za-zА-Яа-я0-9]*/g,'');
+      let sentence2= line2.replace(/[^A-Za-zА-Яа-я0-9]*/g,'');
       let arrayFromline1 = sentence1.split("");
       let arrayFromline2 = sentence2.split("");
       if(arrayFromline1.length !== arrayFromline2.length){
             return false;
       }
-      for (let i = 0; i <arrayFromline1.length; i++){
-            for(let j = 0; j <arrayFromline2.length; j++){
-                  if(arrayFromline1[i]!==null && arrayFromline2[j]!==null && arrayFromline1[i]  ===arrayFromline2[j]){
-                   arrayFromline1[i]=null;
-                   arrayFromline2[j]=null;      
-                  } 
-            }          
-      }
-      for(let i = 0; i< arrayFromline1.length; i++){
-            if(arrayFromline1[i]!==null){
-                return false;
-            }
-      }
-      for(let i = 0; i< arrayFromline2.length; i++){
-            if(arrayFromline2[i]!==null){
-            return false;
-            }
-      return true; 
-      }        
+     arrayFromline1.sort();
+     arrayFromline2.sort();
+     for(let i = 0; i<arrayFromline1.length;i++){
+           if(arrayFromline1[i]!==arrayFromline2[i]){
+                 return false;
+           }else{
+                 continue;
+           }
+     }
+     return true;
 }
 //6
 function countVowels(text){
